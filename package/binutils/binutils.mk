@@ -92,7 +92,8 @@ HOST_BINUTILS_CONF_OPTS = \
 	--enable-lto \
 	$(BINUTILS_DISABLE_GDB_CONF_OPTS) \
 	$(BINUTILS_EXTRA_CONFIG_OPTIONS) \
-	--without-zstd
+	--without-zstd \
+	CFLAGS="$${CFLAGS} -std=gnu17 "
 
 ifeq ($(BR2_BINUTILS_GPROFNG),y)
 HOST_BINUTILS_DEPENDENCIES += host-bison

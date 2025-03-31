@@ -15,6 +15,7 @@ GMP_DEPENDENCIES = host-m4
 HOST_GMP_DEPENDENCIES = host-m4
 
 GMP_CONF_ENV += CC_FOR_BUILD="$(HOSTCC) -std=c99"
+HOST_GMP_CONF_OPTS += CFLAGS="$${CFLAGS} -std=gnu17 "
 
 # GMP doesn't support assembly for coldfire or mips r6 ISA yet
 # Disable for ARM v7m since it has different asm constraints
