@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3730326..45ac274 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,6 +1,7 @@
+-cmake_minimum_required(VERSION 2.8.12)
++cmake_minimum_required(VERSION VERSION 4.0)
+ # When using CMake 3.4 and later, don't export symbols from executables unless
+ # the CMAKE_ENABLE_EXPORTS variable is set.
++set(CMAKE_EXECUTABLE_ENABLE_EXPORTS ON)
+ if(POLICY CMP0065)
+   cmake_policy(SET CMP0065 NEW)
+ endif()

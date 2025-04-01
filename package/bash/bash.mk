@@ -15,7 +15,9 @@ BASH_CPE_ID_VENDOR = gnu
 BASH_CONF_OPTS = \
 	--bindir=/bin \
 	--with-installed-readline \
-	--without-bash-malloc
+	--without-bash-malloc \
+	CFLAGS="$${CFLAGS} -std=c11" \
+	CFLAGS_FOR_BUILD="$${CFLAGS_FOR_BUILD} -std=c11"
 
 BASH_CONF_ENV += \
 	ac_cv_rl_prefix="$(STAGING_DIR)" \
