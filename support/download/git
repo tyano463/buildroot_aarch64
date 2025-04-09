@@ -197,7 +197,7 @@ date="$( _plain_git log -1 --pretty=format:%ci )"
 
 # There might be submodules, so fetch them.
 if [ ${recurse} -eq 1 ]; then
-    _git submodule update --init --recursive
+    _git submodule update --init --recursive --depth=1 --progress
 
     # Older versions of git will store the absolute path of the git tree
     # in the .git of submodules, while newer versions just use relative
