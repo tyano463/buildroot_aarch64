@@ -10,6 +10,7 @@ menu "Target packages"
 	source "package/skeleton-init-sysv/Config.in"
 
 menu "Audio and video applications"
+	source "package/musescore/Config.in"
 	source "package/alsa-utils/Config.in"
 	source "package/atest/Config.in"
 	source "package/aumix/Config.in"
@@ -1517,6 +1518,7 @@ endmenu
 menu "Libraries"
 
 menu "Audio/Sound"
+	source "package/libsmf/Config.in"
 	source "package/alsa-lib/Config.in"
 	source "package/alsa-plugins/Config.in"
 	source "package/alure/Config.in"

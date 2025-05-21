@@ -1,0 +1,5 @@
+config BR2_PACKAGE_MUSESCORE
+    bool "musescore"
+    help
+      MuseScore is an open source and free music notation software.
+

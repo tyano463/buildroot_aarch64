@@ -1,0 +1,5 @@
+config BR2_PACKAGE_LIBSMF
+    bool "libsmf"
+    help
+      C library for handling Standard MIDI Files (*.mid)
+

@@ -3,4 +3,7 @@ config BR2_PACKAGE_PDF_VIEWER_LVGL
     help
       PDF Viewer(LVGL)
     depends on BR2_PACKAGE_MUPDF
+    depends on BR2_PACKAGE_LIBRSVG
+    depends on BR2_PACKAGE_CJSON
+    depends on BR2_PACKAGE_LIBSMF
 

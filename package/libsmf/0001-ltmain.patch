@@ -1,0 +1,34 @@
+diff --git a/Makefile.am b/Makefile.am
+index 9b28938..894ec13 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -5,3 +5,10 @@ EXTRA_DIST = smf.pc.in
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = smf.pc
+ 
++install:
++	@if test "x$(SYSROOT_PATH)" != "x"; then \
++	  echo "Overriding DESTDIR with sysroot: $(SYSROOT_PATH)"; \
++	  $(MAKE) install-recursive DESTDIR=$(SYSROOT_PATH); \
++	else \
++	  $(MAKE) install-recursive DESTDIR=$(DESTDIR); \
++	fi
+diff --git a/configure.ac b/configure.ac
+index d617607..c5f01f3 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -51,6 +51,14 @@ AC_FUNC_REALLOC
+ AC_FUNC_STRTOD
+ AC_CHECK_FUNCS([memset pow strdup strerror strtol strchr])
+ 
++AC_ARG_WITH([sysroot],
++  [AS_HELP_STRING([--with-sysroot=PATH], [Override install DESTDIR with sysroot path])],
++  [SYSROOT_PATH=$withval],
++  [SYSROOT_PATH=])
++
++AC_SUBST([SYSROOT_PATH])
++
++
+ PKG_CHECK_MODULES(GLIB, glib-2.0 >= 2.2)
+ AC_SUBST(GLIB_CFLAGS)
+ AC_SUBST(GLIB_LIBS)
