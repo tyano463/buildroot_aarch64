@@ -1,15 +1,16 @@
 MUSESCORE_LICENSE = GPL-v2+
 
-define MUSESCORE_EXTRACT_CMDS
-	tar xf package/musescore/musescore.tar.xz -C $(@D)
-endef
+MUSESCORE_VERSION = 4.5.2
+MUSESCORE_SOURCE = MuseScore-Studio-$(MUSESCORE_VERSION).251150648-aarch64.AppImage
+MUSESCORE_SITE = https://github.com/musescore/MuseScore/releases/download/v$(MUSESCORE_VERSION)
+MUSESCORE_INSTALL_STAGING = YES
 
-define MUSESCORE_BUILD_CMDS
+
+define MUSESCORE_EXTRACT_CMDS
 endef
 
 define MUSESCORE_INSTALL_TARGET_CMDS
-	cp -a $(@D)/squashfs-root $(TARGET_DIR)/opt/
-	chmod -R go+rx $(TARGET_DIR)/opt/squashfs-root
+	(cp -a dl/musescore/MuseScore-Studio-$(MUSESCORE_VERSION)*.AppImage $(TARGET_DIR)/opt/;chmod +x $(TARGET_DIR)/opt/MuseScore-Studio-$(MUSESCORE_VERSION)*.AppImage)
 endef
 
 $(eval $(generic-package))

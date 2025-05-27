@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index d18e557..a421e01 100644
+--- a/Makefile
++++ b/Makefile
+@@ -302,7 +302,7 @@ generate: source/html/css-properties.h
+ # --- Library ---
+ 
+ ifeq ($(shared),yes)
+-MUPDF_LIB = $(OUT)/libmupdf.$(SO)$(SO_VERSION)
++MUPDF_LIB = $(OUT)/libmupdf.$(SO)$(SO_VERSION) $(OUT)/libmupdf.$(SO)
+ ifeq ($(SO),dll)
+ MUPDF_LIB_IMPORT = $(OUT)/libmupdf_$(SO).a
+ LIBS_TO_INSTALL_IN_BIN = $(MUPDF_LIB)
